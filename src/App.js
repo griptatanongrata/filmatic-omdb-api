@@ -8,6 +8,11 @@ import Footer from "./pages/Footer";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [yearFilter, setYearFilter] = useState("");
+
+  const resetYearFilter = () => {
+    setYearFilter("");
+  };
 
   const fetchMovies = async (query) => {
     const response = await fetch(
@@ -24,9 +29,13 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Header onSearch={fetchMovies} />
+        <Header onSearch={fetchMovies} resetYearFilter={resetYearFilter} />
         <Routes>
-          <Route path="/" element={<MovieList movies={movies} />} />
+          <Route
+            path="/"
+            element={<MovieList movies={movies} />}
+            yearFilter={yearFilter}
+          />
           <Route path="/movies/:id" element={<MovieDetails />} />
         </Routes>
         <Footer />

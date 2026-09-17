@@ -3,7 +3,7 @@ import logo from "../assets/filmatic.png";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 
-const Header = ({ onSearch }) => {
+const Header = ({ onSearch, resetYearFilter }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -31,17 +31,34 @@ const Header = ({ onSearch }) => {
           <i className="fa fa-bars"></i>
         </div>
         <nav ref={menuRef} className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-          <Link to="/" className="home" onClick={() => setIsMenuOpen(false)}>
+          <Link
+            to="/"
+            className="home"
+            onClick={() => {
+              setIsMenuOpen(false);
+              resetYearFilter();
+            }}
+          >
             HOME
           </Link>
           <Link
             to="/"
             className="movies-header"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => {
+              setIsMenuOpen(false);
+              resetYearFilter();
+            }}
           >
             MOVIES
           </Link>
-          <Link to="/" className="contact" onClick={() => setIsMenuOpen(false)}>
+          <Link
+            to="/"
+            className="contact"
+            onClick={() => {
+              setIsMenuOpen(false);
+              resetYearFilter();
+            }}
+          >
             CONTACT
           </Link>
         </nav>
