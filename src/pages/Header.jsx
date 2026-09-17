@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/filmatic.png";
 import SearchBar from "./SearchBar";
+import { Link } from "react-router-dom";
 
 const Header = ({ onSearch }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,15 +18,15 @@ const Header = ({ onSearch }) => {
           <i className="fa fa-bars"></i>
         </div>
         <nav className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-          <a href="/" className="home">
+          <Link to="/" className="home">
             HOME
-          </a>
-          <a href="/movies" className="movies-header">
+          </Link>
+          <Link to="/" className="movies-header">
             MOVIES
-          </a>
-          <a href="/contact" className="contact">
+          </Link>
+          <Link to="/" className="contact">
             CONTACT
-          </a>
+          </Link>
         </nav>
       </div>
       <SearchBar onSearch={onSearch} />

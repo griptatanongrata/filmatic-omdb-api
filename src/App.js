@@ -26,8 +26,8 @@ function App() {
       <div className="app">
         <Header onSearch={fetchMovies} />
         <Routes>
-            <Route path="/" element={<MovieList movies={movies} />} />
-            <Route path="/movies/:id" element={<MovieDetails />} />
+          <Route path="/" element={<MovieList movies={movies} />} />
+          <Route path="/movies/:id" element={<MovieDetails />} />
         </Routes>
         <Footer />
       </div>
